@@ -19,21 +19,24 @@ func init() {
 	flag.StringVar(&configPath, "config-path", "configs/api_server.toml", "path to config file")
 }
 
-
 func main() {
 	// получаем config-path из ком.стр или по умолчанию
 	flag.Parse()
-	// создаём структуру baseConfig
-	config := api_server.NewBaseConfig()
+
+	// Инициализируем сервер
+	//
+	// создаём структуру server.ServerConfig
+	config := api_server.NewServerConfig()
 	// заливаем данные из файла в структуру конфига
 	_, err := toml.DecodeFile(configPath, config)
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	//
 	s := api_server.NewApiServer(config)
 	// check start api_server
 	if err := s.Start(); err != nil {
 		log.Fatal(err)
 	}
+
 }
