@@ -11,11 +11,11 @@ var (
 	configPath string
 )
 
-//init
-//Запуститься первой при вызове данного функционала
+// init
+// Запуститься первой при вызове данного функционала
 func init() {
 	// можно передать путь до конфига с помощью параметра коммандной строки
-	// по умолчанию значение configs/api_server.toml
+	// поумолчанию значение configs/api_server.toml
 	flag.StringVar(&configPath, "config-path", "configs/api_server.toml", "path to config file")
 }
 
@@ -23,8 +23,6 @@ func main() {
 	// получаем config-path из ком.стр или по умолчанию
 	flag.Parse()
 
-	// Инициализируем сервер
-	//
 	// создаём структуру server.ServerConfig
 	config := api_server.NewServerConfig()
 	// заливаем данные из файла в структуру конфига
@@ -32,7 +30,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	//
+	// Инициализируем сервер передавая конфиг
 	s := api_server.NewApiServer(config)
 	// check start api_server
 	if err := s.Start(); err != nil {
