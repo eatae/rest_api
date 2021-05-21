@@ -42,9 +42,9 @@ func (s *apiServer) Start() error {
 	if s.store, err = s.configureStore(); err != nil {
 		return err
 	}
-
-	// set Info
+	// set Info log
 	s.logger.Info("Start api_server!")
+
 	// Listen and Serve
 	return http.ListenAndServe(s.config.BindAddr, s.router)
 }
@@ -59,21 +59,19 @@ func (s *apiServer) configureLogger() error {
 	return nil
 }
 
-// configureRouter
-func (s *apiServer) configureRouter() {
-	s.router.HandleFunc("/hello", s.handleHello())
-}
-
 // configureStore
 func (s *apiServer) configureStore() (*store.Store, error) {
 	pStore := store.NewStore(s.config.Store)
 	return pStore, pStore.Open()
 }
 
+// configureRouter
+func (s *apiServer) configureRouter() {
+	s.router.HandleFunc("/hello", s.handleHello())
+}
+
 func (s *apiServer) handleHello() http.HandlerFunc {
-	// ...
 	// здесь можно устанавливать специфичные переменные для данного роута
-	// ...
 
 	return func(rw http.ResponseWriter, req *http.Request) {
 		io.WriteString(rw, "Hello world!")
