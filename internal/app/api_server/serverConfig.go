@@ -15,7 +15,8 @@ type ServerConfig struct {
 }
 
 // New ServerConfig...
-// по соглашению используется как конструктур структуры
+//
+// по соглашению используется как конструктур
 func NewServerConfig() *ServerConfig {
 	return &ServerConfig{
 		// устанавливаем значения по умолчанию если они не заданы
