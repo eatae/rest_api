@@ -1,0 +1,62 @@
+  1.
+=====
+
+
+
+
+  2.
+=====
+
+Golang-migrations:
+
+    - Install CLI extension goland-migrations (Use Homebrew for install on Mac)
+
+    - Create migration:
+        $ migrate create -ext sql -dir migrations create_users
+
+    - Описываем миграцию на sql
+
+    - Запускаем миграцию:
+        $ migrate -path migrations -database "postgres://postgres:2222@localhost:54321/rest_api?sslmode=disable" up
+
+
+Add Models:
+
+    - Создаём директорию:
+         internal/app/model
+
+    - Создаём модель (структуру) user:
+        internal/app/model/user.go
+
+    - Создаём userrepositry:
+        internal/app/store/userrepository.go
+
+    - Создаём тестовую БД для тестов запросов.
+
+    - Создаём тесты для UserRespository
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
