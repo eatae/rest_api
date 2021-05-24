@@ -28,13 +28,22 @@ Add Models:
     - Создаём модель (структуру) user:
         internal/app/model/user.go
 
-    - Создаём userrepositry:
+    - Создаём userrepository:
         internal/app/store/userrepository.go
 
-    - Создаём тестовую БД для тестов запросов.
 
-    - Создаём тесты для UserRespository
+Создаём тестовую БД (для проверки запросов во время тестов)
 
+    - Создаём файл internal/app/store/testing
+    - Создаём файл internal/app/store/store_test
+    - Создаём базу данных test_rest_api
+
+    Запускаем имеющиеся миграции:
+        $ migrate -path migrations -database "postgres://postgres:2222@localhost:54321/test_rest_api?sslmode=disable" up
+
+
+Создаём тесты для UserRespository
+    - Создаём файл internal/app/store/userrepository_test
 
 
 
