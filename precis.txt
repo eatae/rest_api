@@ -7,8 +7,12 @@
   2.
 =====
 
-Golang-migrations:
+- Пакет к изучению - sqlx. Удобно расширяет стандартный пакет sql.
+- GORM - лучше не использовать, падает производительность. Мы приходим в go за производительностью.
+- Почитать database/sql tutorial.
 
+
+Golang-migrations:
     - Install CLI extension goland-migrations (Use Homebrew for install on Mac)
 
     - Create migration:
@@ -21,7 +25,6 @@ Golang-migrations:
 
 
 Add Models:
-
     - Создаём директорию:
          internal/app/model
 
@@ -33,7 +36,6 @@ Add Models:
 
 
 Создаём тестовую БД (для проверки запросов во время тестов)
-
     - Создаём файл internal/app/store/testing
     - Создаём файл internal/app/store/store_test
     - Создаём базу данных test_rest_api
@@ -44,6 +46,48 @@ Add Models:
 
 Создаём тесты для UserRespository
     - Создаём файл internal/app/store/userrepository_test
+
+
+
+
+  3.
+=====
+
+Хэширование пароля пользователя
+    - Устанавливаем пакет x/cripto
+        $ go get golang.org/x/crypto
+
+
+Тестируем модель User
+    - Создаём хэлпер для тестов (пакет model):
+        internal/app/model/testing
+
+    - Создаём файл с тестами (пакет model_test):
+        internal/app/model/user_test ()
+
+
+Валидация данных.
+    - Загружаем пакет ozzo-validation:
+        $ go get github.com/go-ozzo/ozzo-validation/is
+
+    - Пишем табличные кейсы на валидацию пользователя
+        model/user_test TestUser_Validate()
+
+     - Создаём кастомный валидатор:
+        internal/app/model/validations.go
+
+
+  4.
+=====
+
+Рефакторинг
+
+
+
+
+
+
+
 
 
 
