@@ -1,7 +1,5 @@
 package api_server
 
-import "rest_api/internal/app/store"
-
 // ServerConfig
 //
 // Cтруктура описываящая конфиг сервера
@@ -10,8 +8,8 @@ type ServerConfig struct {
 	// порт сервера
 	BindAddr string `toml:"bind_addr"`
 	// базовый уровень логирования (читаем из toml файла)
-	LogLevel string `toml:"log_level"`
-	Store    *store.StoreConfig
+	LogLevel    string `toml:"log_level"`
+	DatabaseUrl string `toml:"database_url"`
 }
 
 // New ServerConfig...
@@ -23,6 +21,5 @@ func NewServerConfig() *ServerConfig {
 		// в конфиге api_server.toml
 		BindAddr: ":8080",
 		LogLevel: "debug",
-		Store:    store.NewStoreConfig(),
 	}
 }

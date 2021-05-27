@@ -1,4 +1,4 @@
-package store
+package sqlstore
 
 type StoreConfig struct {
 	DbUrl string `toml:"db_url"`

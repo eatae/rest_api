@@ -1,3 +1,8 @@
+
+Использовать поиск по github:
+    https://github.com/search?q=language%3Ago+%22db.Exec%22+%22TRUNCATE%22&type=Code
+
+
   1.
 =====
 
@@ -80,7 +85,15 @@ Add Models:
   4.
 =====
 
-Рефакторинг
+Рефакторинг кода
+    - Убираем конфиги в store.
+    - Изменяем директорию store, перенося все файлы в новую директорию sqlstore.
+    - Добавляем файл store/store.go (interface)
+    - Добавляем файл store/interface.go (interface)
+
+    - Упрощаем api_server
+    -- Очень много изменений, нужно всё смотреть заново.
+
 
 
 

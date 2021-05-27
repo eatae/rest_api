@@ -30,10 +30,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	// Инициализируем сервер передавая конфиг
-	s := api_server.NewApiServer(config)
+
 	// check start api_server
-	if err := s.Start(); err != nil {
+	if err := api_server.Start(config); err != nil {
 		log.Fatal(err)
 	}
 
