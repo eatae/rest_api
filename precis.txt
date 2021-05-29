@@ -3,6 +3,10 @@
     https://github.com/search?q=language%3Ago+%22db.Exec%22+%22TRUNCATE%22&type=Code
 
 
+Пробуем сделать запрос:
+    curl -X POST http://localhost:8080/users -F "email=invalid"
+
+
   1.
 =====
 
@@ -96,6 +100,11 @@ Add Models:
 
 
 
+
+  5.
+=====
+
+Регистрация и авторизация пользователя.
 
 
 
